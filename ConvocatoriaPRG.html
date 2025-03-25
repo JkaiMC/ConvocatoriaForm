@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convocatoria</title>
+    <style>
+
+        /* fondo de la pagina con degradado animado */
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(264deg, #026b75, #000000);
+            background-size: 400% 400%; /* Hace el degradado más amplio para permitir el movimiento */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: moverDegradado 5s ease infinite; /* Animación del fondo */
+        }
+
+        /* Definir la animacion para el fondo */
+    @keyframes moverDegradado {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+        /* contenedor principal con degradado azul */
+    .container {
+        max-width: 600px;
+        width: 100%;
+        background: linear-gradient(180deg, #02505c, #136e89); /* Degradado de blanco a gris */
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        color: #fff;
+        opacity: 0; /* Comienza oculto */
+        animation: aparecer 3s ease-in-out forwards; /* Animación para aparecer */
+    }
+
+        /* Animación para hacer que el contenedor principal aparezca suavemente */
+    @keyframes aparecer {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+        /* Título del formulario */
+    h2 {
+        text-align: center;
+        color: #ffffff;
+        box-shadow: 0 4px 10px rgba(3, 5, 6, 0.1);
+        margin-bottom: 20px;
+        opacity: 0; /* Comienza oculto */
+        animation: aparecer 4s ease-in-out forwards; /* Animación para aparecer */
+        animation-delay: 0.5s; /* Demora un poco más que el contenedor */
+    }
+
+        /* Estilos para los labels */
+    label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agregué la sombra aquí */
+        opacity: 0; /* Comienza oculto */
+        animation: aparecer 4s ease-in-out forwards; /* Animación para aparecer */
+        animation-delay: 1s; /* Demora un poco más que el título */
+    }
+
+        /* Estilo para los inputs */
+    input, select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 18px;
+        border: 2px solid #020484;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+        opacity: 0; /* Comienza oculto */
+        animation: aparecer 4s ease-in-out forwards; /* Animación para aparecer */
+        animation-delay: 1.5s; /* Demora un poco más que los labels */
+    }
+
+        /* Efecto de enfoque en los campos */
+    input:focus, select:focus {
+        border-color: #2196F3;
+        outline: none;
+        box-shadow: 0 0 5px rgba(33, 150, 243, 0.6);
+    }
+
+        /* Estilo de los botones */
+    button {
+        padding: 12px 18px;
+        font-size: 16px;
+        background: linear-gradient(135deg, #72a1ad, #1eb2c9); /* Degradado de verde */
+        color: rgb(255, 255, 255);
+        border: none;
+        box-shadow: 0 4px 10px rgba(3, 5, 6, 0.1);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        opacity: 0; /* Comienza oculto */
+        animation: aparecer 4s ease-in-out forwards; /* Animación para aparecer */
+        animation-delay: 1s; /* Demora un poco más que los inputs */
+    }
+
+        /* Efecto de hover en los botones */
+    button:hover {
+        background: linear-gradient(135deg, #01787f, #2a4361);
+    }
+
+        /* Estilos del contenedor de los botones */
+    .button-container {
+        text-align: center;
+    }
+
+        /* separación de los cosos */
+    .form-container {
+        margin-bottom: 15px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario de Convocatoria</h2>
+        <form action="resultcon.php" method="post">
+            <div class="form-container">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="form-container">
+                <label for="apellido_paterno">Apellido Paterno:</label>
+                <input type="text" id="apellido_paterno" name="apellido_paterno" required>
+            </div>
+
+            <div class="form-container">
+                <label for="apellido_materno">Apellido Materno:</label>
+                <input type="text" id="apellido_materno" name="apellido_materno" required>
+            </div>
+
+            <div class="form-container">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" required>
+            </div>
+
+            <div class="form-container">
+                <label for="correo">Correo Electronico:</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+
+            <div class="form-container">
+                <label for="semestre">Semestre:</label>
+                <select id="semestre" name="semestre" required>
+                    <option value="1er">1er Semestre</option>
+                    <option value="2do">2do Semestre</option>
+                    <option value="3ro">3er Semestre</option>
+                    <option value="4to">4to Semestre</option>
+                    <option value="5to">5to Semestre</option>
+                    <option value="6to">6to Semestre</option>
+                </select>
+            </div>
+
+            <div class="button-container">
+                <button type="submit">Enviar Convocatoria</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
